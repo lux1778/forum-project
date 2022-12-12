@@ -12,7 +12,6 @@ def post_list(request):
     }
     return render(request, 'forum/post_list.html', context)
 
-
 def post_detail(request, get_slug):
     post = get_object_or_404(Forum, slug=get_slug)
 
