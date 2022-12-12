@@ -1,0 +1,35 @@
+<h1>Post details</h1>
+
+{{ object.title }} </br>
+{{ object.header }}</br>
+{{ object.slug }}</br>
+{{ object.body }}</br>
+{{ object.status }}</br>
+{{ object.created_by }}</br>
+{{ object.created_date }}</br>
+{{ object.update_date }}</br>
+{{ object.publish_date }}</br>
+
+<h2>Comments</h2>
+
+<!--<ul>-->
+<!--{% for comment in Comment_list %}-->
+<!--    <li>{{ comment }} &#45;&#45; {{ comment.body }}</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+
+
+<!--{% if not forum.comments.all %}-->
+<!--    No Comments Available-->
+<!--{% else %}-->
+<!--    {% for comment in forum.comments.all %}-->
+<!--        {{ comment.created_by }} - -->
+<!--        {{ comment.created_date }}-->
+<!--        </br>-->
+<!--        {{ comment.body }}-->
+<!--    {% endfor %}-->
+<!--{% endif %}-->
+
+{% for comment in comments %}
+    {{ comment.body }}
+{% endfor %}
