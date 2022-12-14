@@ -12,11 +12,13 @@ def post_list(request):
     }
     return render(request, 'forum/post_list.html', context)
 
-def post_detail(request, get_slug):
-    post = get_object_or_404(Forum, slug=get_slug)
+def post_detail(request, get_slug, get_id):
+    post = get_object_or_404(Forum, id=get_id, slug=get_slug)
+    comments = Comment.objects.filter(forum = post)
 
     context = {
-        'object': post
+        'object': post,
+        'comments': comments
     }
     return render(request, 'forum/post_details.html', context)
 
