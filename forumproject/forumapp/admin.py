@@ -1,13 +1,17 @@
 from django.contrib import admin
 
 from .models import Forum
-from .models import Comment
+from .models import Comment, Reply
 
 # Register your models here.
 
 
 class InLineComments(admin.TabularInline):
     model = Comment
+
+
+class InLineReplies(admin.TabularInline):
+    model = Reply
 
 @admin.register(Forum)
 class ForumAdmin(admin.ModelAdmin):
@@ -23,7 +27,13 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['id','created_by','body','forum']
     list_filter = ['created_by']
     search_fields = ['body']
+    inlines = [InLineReplies]
 
+@admin.register(Reply)
+class ReplyAdmin(admin.ModelAdmin):
+    list_display = ['id','created_by','body','comment']
+    list_filter = ['created_by']
+    search_fields = ['body']
 
 
 from django.contrib import admin

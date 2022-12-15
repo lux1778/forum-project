@@ -40,3 +40,15 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+
+    def get_comm(self):
+        return reverse('forum:post_details', kwargs={'get_comm_id':self.id})
+
+class Reply(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='replies')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.body

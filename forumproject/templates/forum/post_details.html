@@ -18,5 +18,11 @@
 {% endfor %}
 </ul>
 
+<ul>
+{% for reply in replies%}
+    <li>{{ reply.created_by }} -- {{ reply.body }}</li>
+{% endfor %}
+</ul>
+
 
 
