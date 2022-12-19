@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATICFILES_DIRS = [
+    "/home/dawid/PycharmProjects/forumtest/forumproject/static",
+]
 
 # Application definition
 
